@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.0 on darwin)" generated="20230831 01:20:35.032" rpa="false" schemaversion="3">
+<suite id="s1" name="Login Page Test" source="/Users/shilajit/PycharmProjects/pythonRobotProject/testCase/login_page_test.robot">
+<test id="s1-t1" name="Scenario: Verify the cart by adding item from home page" line="25">
+<kw name="Given Open The Browser And Launch The App" library="login_page_resource">
+<doc>in this keyword luanching the app in the browser</doc>
+<kw name="app is launch" library="login_page_resource">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.rahulshettyacademy.com/loginpagePractise/</arg>
+<arg>safari</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230831 01:20:35.408" level="INFO">Opening browser 'safari' to base url 'https://www.rahulshettyacademy.com/loginpagePractise/'.</msg>
+<status status="PASS" starttime="20230831 01:20:35.407" endtime="20230831 01:20:36.977"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:35.407" endtime="20230831 01:20:36.978"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230831 01:20:36.978" endtime="20230831 01:20:37.017"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:35.407" endtime="20230831 01:20:37.018"/>
+</kw>
+<kw name="When Login With Valid Credentials" library="login_page_resource">
+<kw name="provide the valid crdentials" library="login_page_resource">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>rahulshettyacademy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:37.021" level="INFO">Typing text 'rahulshettyacademy' into text field 'username'.</msg>
+<status status="PASS" starttime="20230831 01:20:37.020" endtime="20230831 01:20:37.189"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>learning</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:37.190" level="INFO">Typing password into text field 'password'.</msg>
+<msg timestamp="20230831 01:20:37.240" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230831 01:20:37.320" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230831 01:20:37.189" endtime="20230831 01:20:37.321"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:37.321" level="INFO">Clicking button 'signInBtn'.</msg>
+<status status="PASS" starttime="20230831 01:20:37.321" endtime="20230831 01:20:37.371"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:37.019" endtime="20230831 01:20:37.371"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:37.018" endtime="20230831 01:20:37.371"/>
+</kw>
+<kw name="Then Verify the added items are avialble in th cart" library="login_page_resource">
+<doc>checking cart with added item</doc>
+<kw name="page should navigate to home page" library="login_page_resource">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//a[text()="ProtoCommerce Home"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230831 01:20:37.373" endtime="20230831 01:20:39.967"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:37.372" endtime="20230831 01:20:39.967"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${actual_item_count}</var>
+<arg>${item_name_xpath}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.026" level="INFO">${actual_item_count} = 4</msg>
+<status status="PASS" starttime="20230831 01:20:39.967" endtime="20230831 01:20:40.026"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>${actual_item_count+1}</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_name}</var>
+<arg>xpath:(//app-card-list//h4/a)[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.044" level="INFO">${item_name} = iphone X</msg>
+<status status="PASS" starttime="20230831 01:20:40.027" endtime="20230831 01:20:40.044"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:(//button[text()="Add "])[${i}]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.044" level="INFO">Clicking button 'xpath:(//button[text()="Add "])[1]'.</msg>
+<status status="PASS" starttime="20230831 01:20:40.044" endtime="20230831 01:20:40.293"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${item_name} is added to cart</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230831 01:20:40.294" level="INFO">iphone X is added to cart</msg>
+<status status="PASS" starttime="20230831 01:20:40.293" endtime="20230831 01:20:40.294"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:40.027" endtime="20230831 01:20:40.294"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_name}</var>
+<arg>xpath:(//app-card-list//h4/a)[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.329" level="INFO">${item_name} = Samsung Note 8</msg>
+<status status="PASS" starttime="20230831 01:20:40.295" endtime="20230831 01:20:40.329"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:(//button[text()="Add "])[${i}]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.330" level="INFO">Clicking button 'xpath:(//button[text()="Add "])[2]'.</msg>
+<status status="PASS" starttime="20230831 01:20:40.329" endtime="20230831 01:20:40.419"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${item_name} is added to cart</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230831 01:20:40.420" level="INFO">Samsung Note 8 is added to cart</msg>
+<status status="PASS" starttime="20230831 01:20:40.419" endtime="20230831 01:20:40.420"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:40.295" endtime="20230831 01:20:40.420"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_name}</var>
+<arg>xpath:(//app-card-list//h4/a)[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.441" level="INFO">${item_name} = Nokia Edge</msg>
+<status status="PASS" starttime="20230831 01:20:40.420" endtime="20230831 01:20:40.441"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:(//button[text()="Add "])[${i}]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.444" level="INFO">Clicking button 'xpath:(//button[text()="Add "])[3]'.</msg>
+<status status="PASS" starttime="20230831 01:20:40.442" endtime="20230831 01:20:40.536"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${item_name} is added to cart</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230831 01:20:40.537" level="INFO">Nokia Edge is added to cart</msg>
+<status status="PASS" starttime="20230831 01:20:40.536" endtime="20230831 01:20:40.537"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:40.420" endtime="20230831 01:20:40.537"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${item_name}</var>
+<arg>xpath:(//app-card-list//h4/a)[${i}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.573" level="INFO">${item_name} = Blackberry</msg>
+<status status="PASS" starttime="20230831 01:20:40.537" endtime="20230831 01:20:40.573"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath:(//button[text()="Add "])[${i}]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.575" level="INFO">Clicking button 'xpath:(//button[text()="Add "])[4]'.</msg>
+<status status="PASS" starttime="20230831 01:20:40.573" endtime="20230831 01:20:40.687"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${item_name} is added to cart</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230831 01:20:40.688" level="INFO">Blackberry is added to cart</msg>
+<status status="PASS" starttime="20230831 01:20:40.688" endtime="20230831 01:20:40.689"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:40.537" endtime="20230831 01:20:40.689"/>
+</iter>
+<status status="PASS" starttime="20230831 01:20:40.026" endtime="20230831 01:20:40.689"/>
+</for>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230831 01:20:40.689" endtime="20230831 01:20:40.696"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${checkout_button_xpath}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230831 01:20:40.697" level="INFO">Clicking link '//a[contains(text(),'Checkout')]'.</msg>
+<status status="PASS" starttime="20230831 01:20:40.696" endtime="20230831 01:20:40.769"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230831 01:20:50.771" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230831 01:20:40.770" endtime="20230831 01:20:50.771"/>
+</kw>
+<status status="PASS" starttime="20230831 01:20:37.371" endtime="20230831 01:20:50.772"/>
+</kw>
+<tag>cart</tag>
+<status status="PASS" starttime="20230831 01:20:35.406" endtime="20230831 01:20:50.773"/>
+</test>
+<status status="PASS" starttime="20230831 01:20:35.035" endtime="20230831 01:20:50.775"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">cart</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Login Page Test">Login Page Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
