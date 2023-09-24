@@ -1,4 +1,4 @@
-from SeleniumLibrary import keywords
+#from SeleniumLibrary import keywords
 from robot.api.deco import library, keyword
 from robot.libraries.BuiltIn import BuiltIn
 
@@ -20,5 +20,7 @@ class keywords:
         return origianl_tab_name
 
 
-
-
+    @keyword
+    def convert_string_to_int(self,stringvalue):
+        number=int(stringvalue.replace(',', ''))
+        return number
