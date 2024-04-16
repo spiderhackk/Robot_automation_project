@@ -3,11 +3,9 @@
 Library     SeleniumLibrary
 Resource    ..//Resources/login_page_resource.robot
 *** Variables ***
-${dataPath}     /Users/shilajit/Documents/AllScreenShot
-@{expected_item_list_name}     Samsung Note 8      Nokia Edge      iphone X
 
 *** Test Cases ***
-
+#If chromedriver is outdated please run the updated_webdriver.py file. It will isntall latest chrome driver
 Scenario: Verify the Login page with valid credentials
    [Tags]    lunch_app  1
    Given Open The Browser And Launch The App

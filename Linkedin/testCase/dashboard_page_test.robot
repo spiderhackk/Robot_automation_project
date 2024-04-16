@@ -7,6 +7,7 @@ Resource    ..//Resources/dashboard_page_resource.robot
 
 
 *** Test Cases ***
+#If chromedriver is outdated please run the updated_webdriver.py file. It will isntall latest chrome driver
 Scenario: Validate job search
     [Tags]    job_search
     Given Open The Browser And Launch The App

@@ -1,15 +1,17 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library    Collections
-Variables   /Users/shilajit/PycharmProjects/pythonRobotProject/Linkedin/Library/variables.py
+Library    ../../common_library/keywords.py
+Variables   ../../Linkedin/Library/variables.py
+
 *** Variables ***
 ${username_text_field_xpath}    //input[@id="session_key"]
 ${password_input_xpath}     //input[@id="session_password"]
 ${submit_button}    //button[@data-id="sign-in-form__submit-btn"]
 *** Keywords ***
 Launch the app
-    Create Webdriver    Chrome      executable_path=/Users/shilajit/PycharmProjects/pythonRobotProject/common_library/bin/chromedriver
-    Go To       https://www.linkedin.com/home
+    Create Webdriver    Chrome      executable_path=${current_directory}/common_library/bin/chromedriver
+    Go To    https://www.linkedin.com/home
 
 provide the valid crdentials
     ${decode_username}=     Evaluate    base64.b64decode('${username}').decode('utf-8')   modules=base64
@@ -24,9 +26,9 @@ provide the valid crdentials
 page should navigate to home page
     ${status}=  Run Keyword And Return Status    wait until element is visible     //div[@class="scaffold-layout__sidebar"]  20s
     IF    '${status}'=='True'
-        Log    dashboard is displayed
+        Log    dashboard is displayed   console=yes
     ELSE
-        Log    Fail    dashboard is not displayed
+        Log    Fail    dashboard is not displayed   console=yes
     END
 
 

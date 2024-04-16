@@ -5,6 +5,7 @@ Resource    ..//Resources/login_page_resource.robot
 Library    ../../common_library/keywords.py
 Library    OperatingSystem
 Library    String
+
 *** Variables ***
 ${job_tab}      //nav[@class="global-nav__nav"]//span[text()="Jobs"]
 ${input_job_field_xpath}    //input[@role="combobox"]
@@ -21,7 +22,7 @@ Validating the search job from header
     ...     getting job title text from the txt file
     Click Element    ${job_tab}
     Sleep    5s
-    ${get_text}     Get File    ${text_file_path}
+    ${get_text}     Get File    ${current_directory}${text_file_path}
     Input Text      ${input_job_field_xpath}    ${get_text}
     Sleep    2s
     Press Keys  None    RETURN
